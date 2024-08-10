@@ -236,10 +236,61 @@ while True:
     except ValueError:
       print("Invalid! Please only enter real numbers.")
       continue
+      
+  # Add a new option to find the least common multiple of two numbers
+  elif choice == '19':
+    try:
+      num1 = int(input("Enter number 1: "))
+      num2 = int(input("Enter number 2: "))
+      print(least_common_multiple(num1, num2))
+    except ValueError:
+      print("Invalid! Please only enter integers.")
+      continue
 
+  # Add a new option to find the greatest common divisor of two numbers
+  elif choice == '20':
+    try:
+      num1 = int(input("Enter number 1: "))
+      num2 = int(input("Enter number 2: "))
+      print(greatest_common_divisor(num1, num2))
+    except ValueError:
+      print("Invalid! Please only enter integers.")
+      continue
+
+  # Add a new option to find the sum of the digits of a number
+  elif choice == '21':
+    try:
+      num = int(input("Enter a number: "))
+      print(sum_of_digits(num))
+    except ValueError:
+      print("Invalid! Please only enter integers.")
+      continue
+
+  # Add a new option to find the reverse of a number
+  elif choice == '22':
+    try:
+      num = int(input("Enter a number: "))
+      print(reverse_number(num))
+    except ValueError:
+      print("Invalid! Please only enter integers.")
+      continue
   elif choice == '18':
-      print("Exiting")
+      print("Leaving, Sad to see you go")
       break
 
   else:
     print("Invalid input. Please enter a number between 1 and 18.")
+  
+  # Add a prompt to ask the user if they want to perform another calculation
+  another_calculation = input("Do you want to perform another calculation? (y/n): ")
+  if another_calculation.lower() != 'y':
+    break
+  
+  # Reset the choice variable to allow the user to choose another operation
+  choice = None
+  
+  # Add a delay before asking for the next operation
+  import time
+  time.sleep(1)
+  print("\n")
+
