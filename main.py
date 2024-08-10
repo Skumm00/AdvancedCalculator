@@ -56,10 +56,36 @@ def tan(x):
   #calculates the tangent of x in radians
   return math.tan(x)
 
+def modulus(x, y):
+  #calculates the remainder of x divided by y
+  return x % y
+
+def absolute_value(x):
+  #calculates the absolute value of x
+  return abs(x)
+
+def greatest_common_divisor(x, y):
+  #calculates the greatest common divisor of x and y
+  while y:
+    x, y = y, x % y
+  return x
+
+def least_common_multiple(x, y):
+  #calculates the least common multiple of x and y
+  return (x * y) // greatest_common_divisor(x, y)
+
+def convert_to_radians(x):
+  #converts degrees to radians
+  return math.radians(x)
+
+def convert_to_degrees(x):
+  #converts radians to degrees
+  return math.degrees(x)
+
 while True:
   print("Choose operation:")
   print("Add:1")
-  print("Substract:2")
+  print("Subtract:2")
   print("Multiply:3")
   print("Divide:4")
   print("Factorial:5")
@@ -69,9 +95,15 @@ while True:
   print("Sine:9")
   print("Cosine:10")
   print("Tangent:11")
-  print("Exit:12")
+  print("Modulus:12")
+  print("Absolute Value:13")
+  print("Greatest Common Divisor:14")
+  print("Least Common Multiple:15")
+  print("Convert to Radians:16")
+  print("Convert to Degrees:17")
+  print("Exit:18")
 
-  choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12): ")
+  choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18): ")
 
   if choice in ('1', '2', '3', '4'):
     try:
@@ -155,8 +187,59 @@ while True:
       continue
 
   elif choice == '12':
+    try:
+      num1 = float(input("Enter number 1: "))
+      num2 = float(input("Enter number 2: "))
+      print(modulus(num1, num2))
+    except ValueError:
+      print("Invalid! Please only enter real numbers.")
+      continue
+
+  elif choice == '13':
+    try:
+      num1 = float(input("Enter number for absolute value: "))
+      print(absolute_value(num1))
+    except ValueError:
+      print("Invalid! Please only enter real numbers.")
+      continue
+
+  elif choice == '14':
+    try:
+      num1 = int(input("Enter number 1: "))
+      num2 = int(input("Enter number 2: "))
+      print(greatest_common_divisor(num1, num2))
+    except ValueError:
+      print("Invalid! Please only enter integers.")
+      continue
+
+  elif choice == '15':
+    try:
+      num1 = int(input("Enter number 1: "))
+      num2 = int(input("Enter number 2: "))
+      print(least_common_multiple(num1, num2))
+    except ValueError:
+      print("Invalid! Please only enter integers.")
+      continue
+
+  elif choice == '16':
+    try:
+      num1 = float(input("Enter angle in degrees to convert to radians: "))
+      print(convert_to_radians(num1))
+    except ValueError:
+      print("Invalid! Please only enter real numbers.")
+      continue
+
+  elif choice == '17':
+    try:
+      num1 = float(input("Enter angle in radians to convert to degrees: "))
+      print(convert_to_degrees(num1))
+    except ValueError:
+      print("Invalid! Please only enter real numbers.")
+      continue
+
+  elif choice == '18':
       print("Exiting")
       break
 
   else:
-    print("Invalid input. Please enter a number between 1 and 12.")
+    print("Invalid input. Please enter a number between 1 and 18.")
