@@ -67,7 +67,7 @@ def absolute_value(x):
 def greatest_common_divisor(x, y):
   #calculates the greatest common divisor of x and y
   while y:
-    x, y = y, x % y
+    x, y = y, x % y #greatest common diviser
   return x
 
 def least_common_multiple(x, y):
@@ -80,14 +80,35 @@ def convert_to_radians(x):
 
 def convert_to_degrees(x):
   #converts radians to degrees
-  return math.degrees(x)
+  return math.degrees(x) #converts more to degree
+
+def sum_of_digits(n):
+  #calculates the sum of the digits of a number
+  if n < 0:
+    n = -n
+  sum = 0
+  while n > 0:
+    digit = n % 10
+    sum += digit
+    n //= 10
+  return sum
+
+def reverse_number(n):
+  #reverses the digits of a number
+  reversed_number = 0
+  while n > 0:
+    
+    digit = n % 10
+    reversed_number = reversed_number * 10 + digit
+    n //= 10
+  return reversed_number
 
 while True:
   print("Choose operation:")
   print("Add:1")
   print("Subtract:2")
   print("Multiply:3")
-  print("Divide:4")
+  print("Diviie:4")
   print("Factorial:5")
   print("Power:6")
   print("Square Root:7")
@@ -98,7 +119,7 @@ while True:
   print("Modulus:12")
   print("Absolute Value:13")
   print("Greatest Common Divisor:14")
-  print("Least Common Multiple:15")
+  print("Least Comon Multiple:15")
   print("Convert to Radians:16")
   print("Convert to Degrees:17")
   print("Exit:18")
@@ -129,15 +150,16 @@ while True:
     try:
       num1 = int(input("Enter a non-negative integer for factorial: "))
       if num1 < 0:
-        print("Error: Factorial is not defined for negative numbers")
+        print("error: Factorial is not defined for negative numbers")
       else:
         print(factorial(num1))
     except ValueError:
-      print("Invalid! Please enter a non-negative integer.")
+      print("Wrong! Please enter a non-negative integer.")
       continue
 
   elif choice == '6':
     try:
+      
       num1 = float(input("Enter base: "))
       num2 = float(input("Enter exponent: "))
       print(power(num1, num2))
